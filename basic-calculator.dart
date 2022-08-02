@@ -1,14 +1,34 @@
 import "dart:math";
 import "dart:io";
 
-void main() {
+String prompt(String promptText){
+  print("The prompt is: ${promptText}");
+  String answer = stdin.readLineSync();
+  return answer;
+}
 
-  print("Enter first number:");
-  int num1 = int.parse(stdin.readLineSync());
-  print("Enter second number:");
-  int num2 = int.parse(stdin.readLineSync());
+double promptDouble(){
+  print("Enter a number:");
+  double myNum = double.parse(stdin.readLineSync());
+  return myNum;
+}
 
-  print(
-    num1 + num2
-  );
+void main(){
+
+  double num1 = promptDouble();
+  double num2 = promptDouble();
+  String op = prompt("Enter an operation (+,-,/,*):");
+
+  if(op == "+"){
+    print(num1 + num2);
+  }else if(op == "-"){
+    print(num1 - num2);
+  }else if(op == "/"){
+    print(num1 / num2);
+  }else if(op == "*") {
+    print(num1 * num2);
+  }else{
+    print("Invalid operator");
+  }
+  
 }
